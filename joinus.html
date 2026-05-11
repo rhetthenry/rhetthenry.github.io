@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Join the Scouts</title>
+    <!-- Importing a rugged font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Special+Elite&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --scout-green: #2e5a27;
+            --dark-green: #1e3d1a;
+            --accent-gold: #f1c40f;
+            --khaki: #d2b48c;
+            --text-light: #f4f4f4;
+            --wood-brown: #5d4037;
+        }
+
+        body {
+            background-color: #333; /* Light paper/parchment background */
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .main {
+            background-color: var(--dark-green);
+            border: 6px double var(--accent-gold); /* Double border looks like a patch */
+            padding: 40px;
+            margin: 20px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h2 strong {
+            color: var(--accent-gold);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px var(--wood-brown);
+        }
+
+        /* Styling the form inputs */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Spacing items apart so they don't touch */
+        }
+
+        input, textarea {
+            background-color: var(--scout-green);
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 12px;
+            color: white;
+            font-family: 'Special Elite', courier, serif; /* Typewriter font for field notes */
+            font-size: 1rem;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        /* The "Badge" Style Button */
+        button {
+            background-color: var(--accent-gold);
+            color: var(--dark-green);
+            border: none;
+            padding: 15px;
+            border-radius: 50px; /* Rounded pill shape */
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            border-bottom: 4px solid var(--wood-brown);
+        }
+
+        button:hover {
+            background-color: #e2b607;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(2px);
+            border-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <h2><strong>Join Our Troop</strong></h2>
+
+        <form action="send_email.php" method="POST">
+            <input type="text" name="user_name" placeholder="Scout Name" required>
+            <input type="email" name="user_email" placeholder="CONTACT EMAIL" required>
+            <textarea name="interest" placeholder="WHY ARE YOU READY FOR AN ADVENTURE?"></textarea>
+            <button type="submit" onclick="window.location.href='troopweb.html';">Enlist Now</button>
+        </form>
+    </div>
+
+</body>
+</html>

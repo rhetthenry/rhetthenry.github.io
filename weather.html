@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --scout-green: #2e5a27;
+            --dark-green: #1e3d1a;
+            --accent-gold: #f1c40f;
+            --khaki: #d2b48c;
+            --text-light: #f4f4f4;
+            --wood-brown: #5d4037;
+        }
+
+        body {
+            background-color: #333; /* Light neutral background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .radarmenu {
+            width: 100%;
+            max-width: 900px;
+            background-color: var(--dark-green);
+            border: 10px solid var(--scout-green);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden; /* Keeps the map corners rounded */
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .radarmenu h2 {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--dark-green);
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--accent-gold);
+            text-transform: uppercase;
+            color: var(--accent-gold);
+        }
+
+
+        /* This makes the Windy map responsive */
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 600px; /* Adjusted height for better viewing */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        p {
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="radarmenu">
+        <h2>Weather Radar</h2>
+        <p>Hello Scouts! This Radar Is to help you plan your scouting events and plan for campouts!</p>
+        
+        <div class="map-container">
+            <iframe 
+                src="https://embed.windy.com/embed.html?type=map&location=coordinates&metricRain=default&metricTemp=default&metricWind=default&zoom=10&overlay=wind&product=ecmwf&level=surface&lat=32.786&lon=-96.938&detailLat=32.82536512222339&detailLon=-96.92344665527344&marker=true" 
+                frameborder="0">
+            </iframe>
+        </div>
+    </div>
+
+</body>
+</html>

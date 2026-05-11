@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Fonts for a modern, professional look -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --scout-green: #2e5a27;
+    --dark-green: #1e3d1a;
+    --accent-gold: #f1c40f;
+    --text-light: #f4f4f4;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #222;
+  }
+
+  .image-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    background-color: #333;
+    gap: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+    transition: background-color 0.5s ease;
+  }
+
+  .image-container.light-mode {
+    background-color: white;
+    transition: background-color 0.5s ease;
+  }
+
+  .sidebar-box {
+    flex: 1;
+    min-width: 250px;
+    background-color: var(--scout-green);
+    color: var(--text-light);
+    padding: 25px;
+    border-radius: 24px; /* Slightly more professional than 45px */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border: 10px solid rgba(255,255,255,0.1);
+    /* FIXED: Added 's' for seconds and removed 'ease' from property list */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+  }
+
+  .sidebar-box:hover {
+    background-color: var(--dark-green);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+  }
+
+  body {
+    background: #333;
+    transition: background-color 0.5s ease;
+  }
+
+  body.light-mode {
+    background-color: white;
+    transition: background-color 0.5s ease;
+  }
+
+/* leaf animations */
+
+#leaves {position:relative;top:-50px;width:100%;text-align: right;}
+
+#leaves i {
+    display: inline-block;
+    width: 200px;
+    height: 150px;
+    background: linear-gradient(to bottom right, #309900, #005600);
+    transform: skew(20deg);
+    border-radius: 5% 40% 70%;
+    box-shadow: inset 0px 0px 1px #222;
+    border: 1px solid #333;
+    z-index: 1;
+    -webkit-animation: falling 5s 0s infinite;
+}
+
+#leaves i:nth-of-type(2n) { -webkit-animation: falling2 5s 0s infinite; }
+#leaves i:nth-of-type(3n) { -webkit-animation: falling3 5s 0s infinite; }
+
+#leaves i:before {
+  position: absolute;
+  content: '';
+  top: 117px;
+  right: 9px;
+  height: 27px;
+  width: 32px;
+  transform: rotate(49deg);
+  border-radius: 0% 15% 15% 0%;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  border-left: 0px solid #222;
+  border-right: 1px solid #222;
+  background: linear-gradient(to right, rgba(0,100,0,1), #005600);
+  z-index: 1;
+}
+
+#leaves i:after {
+  content: '';
+  height: 125px;
+  width: 10px;
+  background: linear-gradient(to right, rgba(0,0,0,.15), rgba(0,0,0,0));
+  display: block;
+  transform: rotate(125deg);
+  position: absolute;
+  left: 85px;
+  border-radius:50%;
+}
+
+
+#leaves i:nth-of-type(n)    { height:23px; width:30px; }
+#leaves i:nth-of-type(n):before { width:7px; height:5px; top:17px; right:1px; }
+#leaves i:nth-of-type(n):after { width:2px; height:17px; left: 12px; top:0px; }
+
+#leaves i:nth-of-type(2n+1)    { height:11px; width:16px; }
+#leaves i:nth-of-type(2n+1):before { width:4px; height:3px; top:7px; right:0px; }
+#leaves i:nth-of-type(2n+1):after { width:2px; height:6px; left: 5px; top:1px; }
+
+#leaves i:nth-of-type(3n+2)  { height:17px; width:23px; }
+#leaves i:nth-of-type(3n+2):before  { height:4px; width:4px; top:12px; right:1px; }
+#leaves i:nth-of-type(3n+2):after  { height:10px; width:2px; top:1px; left:8px; }
+
+#leaves i:nth-of-type(n)   { -webkit-animation-delay: 7s;}
+#leaves i:nth-of-type(2n)  { -webkit-animation-delay: 3.9s;}
+#leaves i:nth-of-type(3n)  { -webkit-animation-delay: 2.3s;}
+#leaves i:nth-of-type(4n)  { -webkit-animation-delay: 4.4s;}
+#leaves i:nth-of-type(5n)  { -webkit-animation-delay: 5s;  }
+#leaves i:nth-of-type(6n)  { -webkit-animation-delay: 3.5s;}
+#leaves i:nth-of-type(7n)  { -webkit-animation-delay: 2.8s;}
+#leaves i:nth-of-type(8n)  { -webkit-animation-delay: 1.5s;}
+#leaves i:nth-of-type(9n)  { -webkit-animation-delay: 3.3s;}
+#leaves i:nth-of-type(10n) { -webkit-animation-delay: 2.5s;}
+#leaves i:nth-of-type(11n) { -webkit-animation-delay: 1.2s;}
+#leaves i:nth-of-type(12n) { -webkit-animation-delay: 4.1s;}
+#leaves i:nth-of-type(13n) { -webkit-animation-delay: 1s;  }
+#leaves i:nth-of-type(14n) { -webkit-animation-delay: 4.7s;}
+#leaves i:nth-of-type(15n) { -webkit-animation-delay: 3s;  } /*Defining this wont work for the Syntax of Java scripy */
+
+#leaves i:nth-of-type(n)    { background: linear-gradient(to bottom right, #309900, #005600); }
+#leaves i:nth-of-type(2n+2)  { background: linear-gradient(to bottom right, #5e9900, #2b5600); }
+#leaves i:nth-of-type(4n+1)  { background: linear-gradient(to bottom right, #990, #564500); }
+
+#leaves i:nth-of-type(n)    { opacity: 4;}
+#leaves i:nth-of-type(3n+1)  { opacity: 4;}
+#leaves i:nth-of-type(3n+2)  { opacity: 3;}
+
+#leaves i:nth-of-type(n)    {transform: rotate(180deg);}
+
+
+#leaves i:nth-of-type(n) { -webkit-animation-timing-function:ease-in-out;}
+
+@-webkit-keyframes falling {
+    
+    0% {
+        -webkit-transform:
+            translate3d(300,0,0)
+            rotate(0deg);
+    }
+    
+    100% {
+        -webkit-transform:
+            translate3d(-350px,700px,0)
+            rotate(90deg);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes falling3 {
+     0% {
+        -webkit-transform:
+            translate3d(0,0,0)
+            rotate(-20deg);
+    }
+    
+    100% {
+        -webkit-transform:
+            translate3d(-230px,640px,0)
+            rotate(-70deg);
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes falling2 {
+     0% {
+        -webkit-transform:
+            translate3d(0,0,0)
+            rotate(90deg);
+    }
+    
+    100% {
+        -webkit-transform:
+            translate3d(-400px,680px,0)
+            rotate(0deg);
+        opacity: 0;
+    }
+}
+  
+  
+  .photo-wrapper {
+    flex: 3; 
+    overflow: hidden;
+    border-radius: 24px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  }
+
+  .main-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .photo-wrapper:hover .main-photo {
+    transform: scale(1.05); /* Subtle zoom on the photo when hovering the container */
+  }
+
+  h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--accent-gold); /* Gold makes titles pop against green */
+    margin-top: 0;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+  }
+
+  ul {
+    padding-left: 0;
+    list-style-type: none; /* Cleaner look without bullets */
+    font-size: 0.95em;
+  }
+
+  li {
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-size: 0.9em;
+  }
+
+  strong {
+    color: var(--accent-gold);
+  }
+
+  .sidebar-box a {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  /* Responsive: Stacks vertically on mobile */
+  @media (max-width: 900px) {
+    .image-container {
+      flex-direction: column;
+    }
+    .photo-wrapper {
+      order: -1; /* Puts photo at the top on mobile */
+      height: 300px;
+    }
+  
+  }
+
+
+    .welcome {
+      background-color: var(--scout-green);
+      border-radius: 24px;
+      border: 5px solid rgba(255,255,255,0.1);
+      text-align: center;
+      flex-direction: column;
+      margin: 20px;
+      height: 295px;
+      
+      
+    }
+
+    .welcomehouse {
+      padding: 30px;
+    }
+
+    .welcometext {
+      font-family: 'Montserrat', sans-serif;
+
+    }
+
+    .welcomebtn {
+      background-color: var(--accent-gold);
+      border-radius: 24px;
+      border: 2px solid black;
+      height: 40px;
+      width: 100px;
+      box-shadow: #222;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+       
+       
+    }
+
+    .welcomebtn:hover {
+      background-color: #ffd21f;
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+
+    .smalltxt {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--accent-gold);
+      padding-top: 8px;
+    }
+
+    .albumsmall {
+      background-color: var(--scout-green);
+      border-radius: 24px;
+      border: 5px solid rgba(255,255,255,0.1);
+      text-align: center;
+      flex-direction: column;
+      margin: 20px;
+      height: 350px;
+    }
+
+    /* Container for the menu */
+.topmenu {
+  font-family: Arial, sans-serif;
+  padding: 10px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style the button with the hamburger icon */
+.dropbtn {
+  background-color: var(--scout-green); /* Scout Blue */
+  color: var(--accent-gold);
+  padding: 8px 13px;
+  font-size: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--scout-green);
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: var(--accent-gold);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #eee;
+  font-family: 'Montserrat', 'sans-serif';
+  
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+  background-color: var(--scout-green);
+  color: var(--accent-gold);
+}
+
+/* Show the menu when hovering */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Darken the button when menu is open */
+.dropdown:hover .dropbtn {
+  background-color: green;
+}
+
+.lightmodebtn {
+  background-color: var(--dark-green);
+  border-radius: 24px;
+  border: 3px solid black
+
+}
+
+
+.resourses {
+  background-color: var(--scout-green);
+  border-radius: 24px;
+  border: 5px solid rgba(255,255,255,0.1);
+  text-align: center;
+  flex-direction: column;
+  margin: 20px;
+  height: 350px;
+}
+
+.BTNPOPUP {
+  background-color: var(--dark-green);
+  font-family: 'Montserrat', 'sans-serif';
+  border: 3px solid black;
+  border-radius: 24px;
+} 
+
+.menu {
+  background-color: var(--scout-green);
+  border-radius: 24px;
+  text-align: center;
+  border: 3px solid rgba(255,255,255,0.1);
+  flex-direction: column;
+  margin: 20px;
+}
+
+.credit {
+  text-align: center;
+}
+
+.rainbow-text {
+  /* Create the rainbow gradient */
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  
+  /* Standard property for clipping (and the -webkit prefix for most browsers) */
+  -webkit-background-clip: text;
+  background-clip: text;
+  
+  /* Make the actual text transparent so the background shows through */
+  color: transparent;
+  
+  /* Optional: Make it bold to see the colors better */
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.rainbow-text-animated {
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow-shift 3s linear infinite;
+}
+
+@keyframes rainbow-shift {
+  to {
+    background-position: 200% center;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <div id="leaves">
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i>
+  <i></i> 
+</div>
+ 
+  <div class="image-container">
+    
+    <!-- Left Sidebar: Upcoming Events -->
+    <div class="sidebar-box">
+      <h2><a style="color: var(--accent-gold);" href="weather.html">Upcoming Events</a></h2>
+      <ul>
+        <li>Troop Meeting <br><strong>5/05/26</strong></li>
+        <li>Slippery Falls Campout <br><strong>5/08/26</strong></li>
+        <li>Troop Meeting <br><strong>5/12/26</strong></li>
+      </ul>
+    </div>
+
+    <!-- Center: The Photo -->
+    <div class="photo-wrapper">
+      <img src="https://i.ibb.co/ymdZNcDT/Troop-Head2.jpg" alt="Troop Photo" class="main-photo">
+    </div>
+
+    <!-- Right Sidebar: Leadership -->
+    <div class="sidebar-box">
+      <h2>Youth Leadership</h2>
+      <p><strong>SPL:</strong> C. Hill</p>
+      <p><strong>ASPL (Meetings):</strong> R. Hurt, A. Jones</p>
+      <p><strong>ASPL (Campouts):</strong> L. Hunter, M. Hill</p>
+      <p><strong>ASPL (Advancements)</strong> R. Herick</p>
+      <p><strong>ASPL (Spirt)</strong> A. Brown, J. Warren</p>
+      <p><strong>Junior Assistant SM:</strong> J. Brown, V. Tucker, C. Reynolds</p>
+      <strong>Quarter Masters:</strong> R. Word, B. Webster, L. Richardson</p>
+      <p><strong>Full Roster:</strong> <a href="youthleadership.html">View Here</a></p>
+    </div>
+
+  </div>
+ 
+  
+  <div class="menu">
+    <div class="menuhome">
+      <p><strong><a href="troopweb.html">Home</a></strong></p>
+    </div>
+    
+    <p><strong><a href="checklist.html">Camping Checklist</a></strong></p>
+  </div>
+  
+  
+  <div class="welcomehouse"></div>
+  
+  <div class="welcome">
+    <h1 class="welcometext"><strong>Welcome To Troop 442!</strong></h1>
+      <h2>A Message from the Scoutmaster</h2>
+
+  <h3>Welcome to Troop 442 in Wylie, Texas! I’m <strong>Scoutmaster Sean Reynolds</strong>, and our Scout-led troop of <strong>+80</strong> members is all about adventure and leadership. We stay active with weekly meetings, monthly campouts, and annual high-adventure trips, all planned by the Scouts themselves during our semi-annual "TOW" sessions. If your child is ready to master the outdoors—from hiking to canoeing—while learning vital leadership and service skills, we invite you to visit us and see what makes our program so rewarding.</h3>
+  <button class="welcomebtn" onclick="window.location.href='joinus.html';">Join Now!</button>
+  </div>
+</div>
+<div class="albumsmall">
+  <h2 class="smalltxt" style="font-family: 'Montserrat', 'sans-serif';">Photos<strong></strong></h2>
+</div>
+<div class="resourses">
+  <h2><strong>Troop Resourses</strong></h2>
+  
+  
+  
+  
+  
+  
+  <button id="mode-toggle" class="lightmodebtn" style="margin: 20px;">
+  Switch Theme
+</button>
+  <!-- The Button to open the menu -->
+<!-- The Modal Overlay -->
+
+<script>
+  const btn = document.getElementById('mode-toggle');
+  const body = document.body;
+  const container = document.querySelector('.image-container');
+
+  btn.addEventListener('click', function() {
+    // 1. Toggle the 'light-mode' class on the body
+    body.classList.toggle('light-mode');
+    container.classList.toggle('container-light');
+
+    // 2. Change the button text so the user knows what happens next
+    if (body.classList.contains('light-mode')) {
+      btn.innerText = "Switch theme";
+    } else {
+      btn.innerText = "Switch theme";
+      btn.backgroundcolor = "Black";
+
+    }
+
+    if (container.classList.toggle('light-mode')) {
+      btn.innerText = "Switch theme";
+    } else {
+      btn.innerText = "Switch theme"; 
+      btn.backgroundcolor = "Black"
+
+
+
+    }
+  });
+  </script>
+</div>  
+
+<div class="credit">
+  <h4 class="rainbow-text">Made By: R. Word</h4>
+</div>
+
+
+</body>
+</html>
