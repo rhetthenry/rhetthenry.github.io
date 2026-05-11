@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+   
+
+    <style>
+         :root {
+    --scout-green: #2e5a27;
+    --dark-green: #1e3d1a;
+    --accent-gold: #f1c40f;
+    --text-light: #f4f4f4;
+  }/* 1. Shrink the main slider container */
+        
+  body {
+    background-color: #333;
+  }      
+  
+  
+  .eaglenesthome {
+            width: 90%;
+            margin: 0 auto;
+            background-color: var(--dark-green);
+            border: 10px solid var(--scout-green);
+            border-radius: 24px;
+            height: 1000px;
+            text-align: center;
+        }
+
+    .eaglenesthome h1 {
+        color: var(--accent-gold);
+        font-family: Montserrat, sans-serif;
+    }    
+      
+    .eaglenesthome p {
+        color: var(--accent-gold);
+        font-family: Montserrat, sans-serif;
+    }  
+        
+        .swiper {
+            width: 300px; /* Adjust this width to your liking */
+            height: auto;
+            margin: 20px auto; /* Centers the slider on the page */
+            border: 10px solid var(--scout-green);
+            border-radius: 8px;
+            padding-bottom: 30px; /* Space for the caption */
+            background-color: var(--dark-green);
+        }
+
+        /* 2. Control the image size inside the slides */
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark-green);
+        }
+
+        .swiper-slide img {
+            width: 100%;       /* Makes image fill the 300px width */
+            height: 350px;     /* Set a fixed height for a portrait look */
+            object-fit: cover; /* Crops the image to fit the box without stretching */
+            border-radius: 4px;
+        }
+
+        .swiper-slide p {
+            margin-top: 10px;
+            font-family: sans-serif;
+            font-weight: bold;
+            text-align: center;
+            color: var(--accent-gold);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* 3. Make arrows a bit smaller to match the small slider */
+        .swiper-button-next, .swiper-button-prev {
+            transform: scale(0.7);
+            color: #fff; /* Scout Blue */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="eaglenesthome">
+        <h1>Eagle Nest</h1>
+        <p>This is the home of our Eagles!</p>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <img src="https://i.postimg.cc/rmFJ8wTG/Ronan-Herrick-Eagle-Photo-2025119182411679135.jpg" alt="Ronan Herrick">
+                    <p>Ronan Herrick<br>08/19/2025</p>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <img src="https://i.postimg.cc/d3nRgMpR/Jake-Crabtrey-Eagle-Photo-20251191824414369328.jpg" alt="Jacob Crabtrey">
+                    <p>Jacob Crabtrey<br>01/28/2025</p>
+                </div>
+            </div>
+            
+            <!-- Arrows -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            loop: true,
+            autoplay: {
+                delay: 3000, // Optional: slides change every 3 seconds
+            },
+        });
+    </script>
+</body>
+</html>
